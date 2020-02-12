@@ -1,0 +1,28 @@
+server:
+  port: 7001
+  servlet:
+    context-path: /homepage-course
+
+spring:
+  application:
+    name: eureka-client-homepage-course
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.format_sql: true
+    open-in-view: false
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/homepage?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: 19971019lx..
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://server1:8000/eureka/

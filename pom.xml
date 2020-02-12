@@ -12,6 +12,8 @@
         <module>homepage-eureka</module>
         <module>homepage-zuul</module>
         <module>homepage-common</module>
+        <module>homepage-course</module>
+        <module>homepage-user</module>
     </modules>
     <!-- 项目的打包类型, 即项目的发布形式, 默认为 jar. 对于聚合项目的父模块来说, 必须指定为 pom -->
     <packaging>pom</packaging>
