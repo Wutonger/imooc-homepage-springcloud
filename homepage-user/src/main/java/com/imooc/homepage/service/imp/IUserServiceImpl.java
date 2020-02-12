@@ -75,6 +75,6 @@ public class IUserServiceImpl implements IUserService {
 
         List<CourseInfo> courseInfos = courseClient.getCourseInfos(new CourseInfosRequest(userCourses.stream().
                 map(HomePageUserCourse::getCourseId).collect(Collectors.toList())));
-        return null;
+        return new UserCourseInfo(userInfo,courseInfos);
     }
 }

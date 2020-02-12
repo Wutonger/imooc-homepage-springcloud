@@ -25,9 +25,9 @@ public class CourseServiceTest {
 
     @Test
     public void testCreateCourseInfo(){
-        HomePageCourse homePageCourse = new HomePageCourse("基于ElasticSearch实现博客检索系统",0,
+        HomePageCourse homePageCourse = new HomePageCourse("于ElasticSearch实现博客检索系统",0,
                 "https://www.imooc.com","带你入门ElasticSearch的使用");
-        HomePageCourse homePageCourse1 = new HomePageCourse("Spark+ElasticSearch实现千人千面的推荐系统",1,
+        HomePageCourse homePageCourse1 = new HomePageCourse("Spark+ElasticSearch实现千人千面的推荐系",1,
                 "https://www.imooc.com","大数据Spark+ES的实战课程");
 
         courseDao.saveAll(Arrays.asList(homePageCourse,homePageCourse1));
