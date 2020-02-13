@@ -2,6 +2,7 @@ package com.imooc.homepage.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.imooc.homepage.UserInfo;
+import com.imooc.homepage.client.CourseClient;
 import com.imooc.homepage.service.IUserService;
 import com.imooc.homepage.vo.CreateUserRequest;
 import com.imooc.homepage.vo.UserCourseInfo;
@@ -25,6 +26,14 @@ public class HomepageUserController {
     @Autowired
     public HomepageUserController(IUserService userService) {
         this.userService = userService;
+    }
+
+    @Autowired
+    private CourseClient courseClient;
+
+    @GetMapping("/get/coursePort")
+    public String getCoursePort(){
+        return courseClient.getPort();
     }
 
 

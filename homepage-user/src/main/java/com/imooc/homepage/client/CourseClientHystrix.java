@@ -13,6 +13,11 @@ import java.util.List;
 @Component
 public class CourseClientHystrix  implements CourseClient{
 
+    @Override
+    public String getPort() {
+        return "10086";
+    }
+
     /**
      * 调用失败后返回无效的课程信息
      * @param id

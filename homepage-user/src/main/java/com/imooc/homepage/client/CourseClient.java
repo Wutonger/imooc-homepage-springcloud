@@ -15,6 +15,9 @@ import java.util.List;
 @FeignClient(value = "eureka-client-homepage-course",fallback = CourseClientHystrix.class)  //指定服务名
 public interface CourseClient {
 
+    @GetMapping(value = "/homepage-course/get/port")
+    String getPort();
+
     @GetMapping(value = "/homepage-course/get/course")
     CourseInfo getCourseInfo(Long id);
 
