@@ -6,6 +6,8 @@ import com.imooc.homepage.client.CourseClient;
 import com.imooc.homepage.service.IUserService;
 import com.imooc.homepage.vo.CreateUserRequest;
 import com.imooc.homepage.vo.UserCourseInfo;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +33,8 @@ public class HomepageUserController {
     @Autowired
     private CourseClient courseClient;
 
+    @HystrixCommand(fallbackMethod = "fallbackMethod",commandProperties = {
+            @HystrixProperty(name = "execution.isolation.strategy",value = "THREAD")},ignoreExceptions = {NullPointerException.class})   //使用Hystrix自带方式服务降级
     @GetMapping("/get/coursePort")
     public String getCoursePort(){
         return courseClient.getPort();
@@ -58,5 +62,10 @@ public class HomepageUserController {
 
         log.info("<homepage-user>: get user course info -> {}", id);
         return userService.getUserCourseInfo(id);
+    }
+
+
+    public String fallbackMethod(){
+        return "10010";
     }
 }

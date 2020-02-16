@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * 通过Feign访问课程微服务
  */
-@FeignClient(value = "eureka-client-homepage-course",fallback = CourseClientHystrix.class)  //指定服务名
+@FeignClient(value = "eureka-client-homepage-course")  //指定服务名
 public interface CourseClient {
 
     @GetMapping(value = "/homepage-course/get/port")
@@ -23,5 +23,6 @@ public interface CourseClient {
 
     @PostMapping(value = "/homepage-course/get/courses")
     List<CourseInfo> getCourseInfos(@RequestBody CourseInfosRequest request);
+
 
 }

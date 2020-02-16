@@ -45,3 +45,8 @@ eureka-client-homepage-course:
 feign:
   hystrix:
     enabled: true   #设置hystrix为true，即在Feign中可以使用熔断器
+
+management:
+  endpoint:
+    health:
+      show-details: always    #监控系统详细信息
